@@ -3,13 +3,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    //Initialize the list for the student pin
     private static List<StudentPin> studentPinList = new ArrayList<>();
-    //Initialize scanner to get user inputs
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //Loop continuously until user selects to exit the program
         while (true) {
             //Show menu
             System.out.println("\nSelect an option below:");
@@ -17,9 +14,7 @@ public class App {
             System.out.println("2. Login via ID and Pin");
             System.out.println("3. Exit Program");
 
-            //Prompt user to enter an option
             System.out.print("\nEnter no. of option here: ");
-            //Get option input
             String option = scanner.nextLine();
             
             //Check option
@@ -41,31 +36,20 @@ public class App {
 
     //This is the add student pin method
     private static void addStudentPin() {
-        //Loop continuously until user prompt no to add another student
         while (true) {
-            //Prompt to enter student id
             System.out.print("Enter student id: ");
-            //Get the student id
             String id = scanner.nextLine();
 
-            //Prompt to enter pin
             System.out.print("Enter pin: ");
-            //Get the student pin
             String pin = scanner.nextLine();
 
-            //Create the StudentPin object
             StudentPin studentPin = new StudentPin(id, pin);
-            //Add the StudentPin object to the list
             studentPinList.add(studentPin);
 
-            //Prompt to add another pin or exit
             System.out.print("Successfully added student pin. Add another? Enter Y for yes, and N for No: ");
 
-            //Get the user confirmation
             String answer = scanner.nextLine();
 
-            //If user answer is not equal to Y or yes, then end loop by using break
-            //otherwise just loop again to add another pin
             if (!answer.equalsIgnoreCase("Y")) {
                 break;
             }
